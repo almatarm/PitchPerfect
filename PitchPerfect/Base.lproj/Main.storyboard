@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record Sounds View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,6 @@
                                 <state key="normal" image="Stop"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="21z-Me-h9D"/>
-                                    <segue destination="DtX-Px-xMG" kind="show" id="Evv-Zx-uXz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,20 +59,37 @@
                         <outlet property="recordButton" destination="cYF-K4-ZjG" id="Wg4-VW-QcK"/>
                         <outlet property="recordingLabel" destination="S2h-UQ-gG5" id="WTH-9e-9uw"/>
                         <outlet property="stopRecordingButton" destination="FQS-Mq-Q2E" id="Hiv-Xn-tLk"/>
+                        <segue destination="DtX-Px-xMG" kind="show" identifier="stopRecording" id="kFz-kT-Vv2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="62.518740629685162"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="x3C-cr-gjw">
             <objects>
-                <viewController id="DtX-Px-xMG" sceneMemberID="viewController">
+                <viewController id="DtX-Px-xMG" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bw-WF-B4r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eIb-Kd-dOQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JtI-B2-MtN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eIb-Kd-dOQ" firstAttribute="leading" secondItem="eve-Js-PjJ" secondAttribute="leading" id="Fq8-2Q-gi3"/>
+                            <constraint firstItem="eve-Js-PjJ" firstAttribute="trailing" secondItem="eIb-Kd-dOQ" secondAttribute="trailing" id="S1s-QO-pnF"/>
+                            <constraint firstItem="eve-Js-PjJ" firstAttribute="bottom" secondItem="eIb-Kd-dOQ" secondAttribute="bottom" id="ZiV-7I-s0b"/>
+                            <constraint firstItem="eIb-Kd-dOQ" firstAttribute="top" secondItem="eve-Js-PjJ" secondAttribute="top" id="icI-gq-9vN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eve-Js-PjJ"/>
                     </view>
                 </viewController>
